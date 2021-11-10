@@ -13,6 +13,9 @@ export class ProductService {
   constructor (private http: HttpClient) {
 
   }
+  get(id:number): Observable<Product> {
+      return this.http.get<Product>(environment.API.baseUrl + environment.API.endpoint.product + '/'+id);
+  }
 
   getProducts():Observable<Product[]> {
       //return of([]); // Of() Simuler un observable si pas de service http -> dev only

@@ -1,0 +1,19 @@
+ul {
+    width: 80%;
+    margin: 25px auto;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+a{
+    
+    padding: 15px;
+    background-color:darkslategray;
+    color:white;
+    text-decoration: none;
+    border-radius:15px;
+}
+a:hover{
+    color:white;
+}

@@ -13,11 +13,15 @@ import { HomeComponent } from './components/home/home.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PanierComponent } from './components/panier/panier.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about-us', component: AboutUsComponent},
-  {path: 'contact-us', component: ContactComponent}
+  {path: 'contact-us', component: ContactComponent},
+  {path: 'product/:id', component: ProductDetailComponent}
 ]
 
 @NgModule({
@@ -26,7 +30,10 @@ const routes: Routes = [
     AboutUsComponent,
     HomeComponent,
     CardsComponent,
-    ContactComponent
+    ContactComponent,
+    NavbarComponent,
+    PanierComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,

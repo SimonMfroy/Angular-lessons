@@ -9,6 +9,7 @@ import { Card } from '../../model/Card'
 export class CardsComponent{
   @Input() data: Card[];
   @Output() likeClick: EventEmitter<number> = new EventEmitter<number>();
+  @Output() cardClick: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {
     this.data = [];
@@ -16,6 +17,10 @@ export class CardsComponent{
 
   onLikeClick(datum:number){
     this.likeClick.emit(datum);
+  } 
+
+  onCardClick(datum:number){
+    this.cardClick.emit(datum);
   } 
 
   /*ngOnInit() {

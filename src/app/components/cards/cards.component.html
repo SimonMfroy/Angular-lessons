@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngFor="let datum of data">
-        <mat-card class="example-card">
+        <mat-card class="example-card" (click)="onCardClick(datum.id)">
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title>{{datum.title}}</mat-card-title>
