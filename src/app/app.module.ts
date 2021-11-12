@@ -21,7 +21,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'about-us', component: AboutUsComponent},
   {path: 'contact-us', component: ContactComponent},
-  {path: 'product/:id', component: ProductDetailComponent}
+  {path: 'product/:id', component: ProductDetailComponent},
+  {path: 'panier', component: PanierComponent}
 ]
 
 @NgModule({
