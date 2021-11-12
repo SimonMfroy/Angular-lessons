@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from '../../model/Card';
+import { Panier } from '../../model/Panier';
 
 @Component({
   selector: 'app-panier',
@@ -6,18 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
+  myArray: Panier[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    /*if(localStorage.getItem('monpanier') === 'null') {
-      localStorage.setItem('monpanier', JSON.stringify(this.panier));
-    }
-    else{
-      let myobj = JSON.parse(localStorage.getItem('monpanier') || 'string');
-      myobj.push(datum);
-      localStorage.setItem('monpanier',JSON.stringify(myobj));
-    }*/
-  }
+    if(localStorage.getItem('monpanier') !== 'null') {
+      let myobj= JSON.parse(localStorage.getItem('monpanier') || 'string');
 
+      myobj.map((product: Card) => {
+        if(product.quantity){
+          this.myArray.push({ id: product.id, price: parseFloat(product.subTitle), name: product.title, totalPrice: parseFloat(product.subTitle) * product.quantity, quantity: product.quantity})
+        }
+     })
+    }
+  }
 }

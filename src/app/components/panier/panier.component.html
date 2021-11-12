@@ -1,1 +1,11 @@
-<p>panier works!</p>
+<div class="container">
+  <table>
+    <tr *ngFor="let datum of myArray">
+      <td>{{datum.id}}</td>
+      <td>{{datum.name}}</td>
+      <td>{{datum.price}} €</td>
+      <td>{{datum.totalPrice}} </td>
+      <td>{{datum.quantity}} </td>
+    </tr>
+  </table>
+</div>

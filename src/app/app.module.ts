@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
+    MatTableModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule

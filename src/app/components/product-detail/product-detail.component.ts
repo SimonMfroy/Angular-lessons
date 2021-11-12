@@ -18,32 +18,30 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onAddClick(datum:Card) {
-    console.log(datum);
 
     this.panier.push(datum);
-    if(localStorage.getItem('monpanier') === 'null') {
+    if(localStorage.getItem('monpanier') === null) {
+      datum.quantity = 1;
       localStorage.setItem('monpanier', JSON.stringify(this.panier));
     }
     else{
       let myobj = JSON.parse(localStorage.getItem('monpanier') || 'string');
-      myobj.push(datum);
+      let find:boolean = false;
+      myobj.forEach((element:any) => {
+        if(element.id == datum.id){
+          find = true;
+          console.log(element.quantity, 'test');
+          if(element.quantity !== undefined){
+            element.quantity = element.quantity +1;
+          }
+        }
+      })
+      if(!find){
+        datum.quantity = 1;
+        myobj.push(datum);
+      }
       localStorage.setItem('monpanier',JSON.stringify(myobj));
     }
-  }
-
-  getRequestedProduct(id:number){
-    /*this.productService.get(id).subscribe((product:Product) => {
-      this.product = product;
-      return this.panier = [{ id: product.id, price:product.price}]
-    })
-    if(localStorage.getItem('monpanier') === null) {
-      localStorage.setItem('monpanier', JSON.stringify(this.panier));
-    }
-    else{
-      let myobj = JSON.parse(localStorage.getItem('monpanier') || 'non');
-      myobj.push(this.panier);
-      localStorage.setItem('monpanier',JSON.stringify(this.panier));
-    }*/
   }
 
   ngOnInit(): void {
