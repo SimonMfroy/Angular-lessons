@@ -10,7 +10,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  data: Card[] = []
+  data: Card[] = [{ title: '', subTitle:'', image:'', id:0 }]
   product: Product = {id: 0, name:'', price:0, picture:'', stock:0}
 
   constructor(private route: ActivatedRoute, private productService:ProductService) {
@@ -20,6 +20,10 @@ export class ProductDetailComponent implements OnInit {
     let productId = this.route.snapshot.params['id'];
     this.productService.get(productId).subscribe((product:Product) => {
       this.product = product;
+      console.log(product);
+
+      return this.data = [{ title: product.name, subTitle: product.price + ' €', image: product.picture, id: product.id}]
+
     })
   }
 
